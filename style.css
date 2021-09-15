@@ -1,10 +1,16 @@
+header{
+    width: 100%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+}
 nav{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     background-color: red;
     padding: 10px;
-    width: 100vw;
+    width: 100%;
 }
 
 nav a{
@@ -39,13 +45,15 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: salmon; */
+    
 }
 
 
 input{
     width: 50%;
     margin: 5px;
+    border: none;
+    border-radius: 2px;
 }
 
 button{
