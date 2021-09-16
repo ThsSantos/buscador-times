@@ -65,7 +65,7 @@ button{
 
 .result{
     margin: 5px;
-    width:80% ;
+    width:90% ;
     background-color: chartreuse;
     display: flex;
     justify-content: space-around;
@@ -80,12 +80,26 @@ button{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    border: 1px solid;
+    border-radius: 2px;
+    margin: 5px;
+    padding: 5px;
 }
 
 .time img{
     width: 50%;
     /* height: 200px; */
     margin: 5px;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
+}
+
+
+.time p {
+    /* background-color: burlywood; */
+    margin: 0;
+    padding: 3px;
+    text-align: center;
+}
+
+.time button{
+    margin: 5px;
 }
