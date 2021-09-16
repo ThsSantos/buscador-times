@@ -54,6 +54,8 @@ input{
     margin: 5px;
     border: none;
     border-radius: 2px;
+    padding: 10px;
+    font-size: 25px;
 }
 
 button{
@@ -63,7 +65,7 @@ button{
 
 .result{
     margin: 5px;
-    width:50% ;
+    width:80% ;
     background-color: chartreuse;
     display: flex;
     justify-content: space-around;
@@ -72,14 +74,18 @@ button{
 
 
 .time{
-    width: 50%;
+    width: 40%;
     background-color: cyan;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    border: 1px solid;
 }
 
 .time img{
-    width: 100px;
+    width: 50%;
+    /* height: 200px; */
+    margin: 5px;
+    background-color: blueviolet;
 }
