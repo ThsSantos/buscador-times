@@ -19,7 +19,7 @@ function busca() {
 
     fetch(`https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${nomeTime}`).then(function (resposta) {
       resposta.json().then(function (data) {
-        // console.log(data)
+        console.log(data)
 
         for (dados of data.teams) {
           console.log(dados)
