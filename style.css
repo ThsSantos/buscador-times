@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
 header{
     width: 100%;
     background-color: black;
     display: flex;
     justify-content: center;
+    top: 0;
+    position: fixed;
+    
 }
 nav{
     display: flex;
@@ -34,7 +46,7 @@ body{
 
 
 .conteudo{
-    margin-top: 2vh;
+    margin-top: 12vh;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     width: 70%;
@@ -93,6 +105,10 @@ button{
     text-align: justify;
     margin: 5px;
     
+}
+
+.club img {
+    width: 35%;
 }
 
 .club p>img{

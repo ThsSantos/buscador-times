@@ -1,43 +1,64 @@
 document.querySelector('button').addEventListener('click', busca)
 const div = document.querySelector('.result')
 
-function time(id){
-  fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${id}`).then(function(info){
-    info.json().then(function(club){
+function time(id) {
+  fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${id}`).then(function (info) {
+    info.json().then(function (club) {
       console.log(club)
       div.innerHTML = ""
 
-      for(team of club.teams){
+      for (team of club.teams) {
         console.log(team)
         let divclub = document.createElement('div')
-        divclub.setAttribute('class','club')
+        divclub.setAttribute('class', 'club')
         let titulo = document.createElement('p')
         titulo.innerText = team.strTeam
         let logo = document.createElement('img')
-        logo.setAttribute('src',team.strTeamBadge)
+        logo.setAttribute('src', team.strTeamBadge)
         let liga = document.createElement('p')
         liga.innerText = `Liga: ${team.strLeague}`
+        let pais = document.createElement('p')
+        pais.innerText = `País: ${team.strCountry}`
         let esporte = document.createElement('p')
         esporte.innerText = `Esporte: ${team.strSport}`
         let nomeEstadio = document.createElement('p')
-        if(team.strStadium == ""){
+        if (team.strStadium == "") {
           nomeEstadio.innerHTML = "Estadio: não encontrado"
-        }else{
+        } else {
           nomeEstadio.innerText = `Estadio: ${team.strStadium}`
         }
-        
+
         let txtEstadio = document.createElement('p')
         txtEstadio.innerText = team.strStadiumDescription
         let imgEstadio = document.createElement('p')
-        if(team.strStadiumThumb == null){
+        if (team.strStadiumThumb == null) {
           imgEstadio.setAttribute('class', 'erroImg')
           imgEstadio.innerText = "Imagem do estadio não disponivel"
-        }else{
+        } else {
           imgEstadio.innerHTML = `<img src= ${team.strStadiumThumb}>`
         }
-        
+
+        let cidade = document.createElement('p')
+        if (team.strStadiumLocation == null) {
+          cidade.innerText = "Cidade: Não definida"
+        } else {
+          cidade.innerText = `Cidade: ${team.strStadiumLocation}`
+        }
+
+        let estadioCap = document.createElement('p')
+        if (team.intStadiumCapacity == null) {
+          estadioCap.innerText = "Capacidade: Não definida"
+        } else {
+          estadioCap.innerText = `Capacidade: ${team.intStadiumCapacity}`
+        }
+
         let inf = document.createElement('p')
         inf.innerText = team.strDescriptionEN
+
+
+        let galeria = document.createElement('div')
+        galeria.setAttribute('class', 'galeria')
+
 
 
         //teste
@@ -45,10 +66,18 @@ function time(id){
         divclub.appendChild(logo)
         divclub.appendChild(liga)
         divclub.appendChild(esporte)
+        divclub.appendChild(pais)
         divclub.appendChild(nomeEstadio)
+        divclub.appendChild(cidade)
+        divclub.appendChild(estadioCap)
         divclub.appendChild(txtEstadio)
         divclub.appendChild(imgEstadio)
         divclub.appendChild(inf)
+
+
+
+
+        divclub.appendChild(galeria)
         div.appendChild(divclub)
 
 
@@ -81,12 +110,12 @@ function busca() {
           let liga = document.createElement('p')
           p.innerText = dados.strTeam
           esporte.innerText = `Esporte: ${dados.strSport}`
-          if(dados.strLeague == ""){
+          if (dados.strLeague == "") {
             liga.innerText = "Liga: Indefinida"
-          }else{
+          } else {
             liga.innerText = `Liga: ${dados.strLeague}`
           }
-          
+
           let botao = document.createElement('button')
           botao.innerText = "Saiba Mais +"
           botao.setAttribute('onclick', `time(${dados.idTeam})`)
