@@ -55,9 +55,17 @@ function time(id) {
         let inf = document.createElement('p')
         inf.innerText = team.strDescriptionEN
 
+        let textoHis = document.createElement('h1')
+        textoHis.innerText = "História"
+
+        let textoGaleria = document.createElement('h1')
+        textoGaleria.innerText = "Galeria"
 
         let galeria = document.createElement('div')
         galeria.setAttribute('class', 'galeria')
+        
+
+        // galeria.innerHTML = "<p>Galeria do Time<p>"
 
         galeria.appendChild(logo.cloneNode(true))
 
@@ -74,6 +82,7 @@ function time(id) {
         if (team.strTeamLogo != null) {
           let logoMarca = document.createElement('img')
           logoMarca.setAttribute('src', team.strTeamLogo)
+          logoMarca.setAttribute('id', 'logoMarca')
           galeria.appendChild(logoMarca)
         }
 
@@ -131,9 +140,11 @@ function time(id) {
         divclub.appendChild(estadioCap)
         divclub.appendChild(txtEstadio)
         divclub.appendChild(imgEstadio)
+        divclub.appendChild(textoHis)
         divclub.appendChild(inf)
+        divclub.appendChild(textoGaleria)
 
-
+        
         divclub.appendChild(galeria)
 
 
