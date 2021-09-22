@@ -91,117 +91,37 @@ button{
     flex-wrap: wrap;
 }
 
-.club {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    
-}
-.club p{
-    color: white;
-    font-size: 30px;
-    text-align: justify;
-    margin: 5px;
-    
+.jogador{
+  width: 25%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2px;
+  margin: 5px;
+  padding: 5px;
 }
 
-.club img {
-    width: 35%;
-}
-
-.club p>img{
-    width: 100%;
-}
-
-.club h1{
-    color: white;
-    margin: 10px;
-}
-
-p.erroImg{
-    font-size: 20px;
-    margin: 30px;
-}
-
-.galeria{
-    width: 100%;
-    margin: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-}
-
-.galeria img{
-    width: 20%;
-    margin: 5px;
-}
-
-#logoMarca{
-    width: 50%;
-    margin: 0;
-}
-
-#banner{
-    width: 100%;
-    margin: 10px;
-}
-
-.redes{
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-
-.fa {
-    padding: 10px 20px;
-    font-size: 100px;
-    width: 15px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    
-  }
-
-
-.time{
-    width: 25%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 2px;
-    margin: 5px;
-    padding: 5px;
-}
-
-.time img{
-    width: 50%;
-    /* height: 200px; */
-    margin: 5px;
-    /* background-color: blueviolet; */
+.jogador img{
+  width: 50%;
+  /* height: 200px; */
+  margin: 5px;
+  /* background-color: blueviolet; */
 }
 
 
-.time p {
-    /* background-color: burlywood; */
-    margin: 0;
-    padding: 3px;
-    text-align: center;
-    color: white;
+.jogador p {
+  /* background-color: burlywood; */
+  margin: 0;
+  padding: 3px;
+  text-align: center;
+  color: white;
 }
 
-.time button{
-    margin: 10px;
-    padding: 1%;
+.jogador button{
+  margin: 10px;
+  padding: 1%;
 
-    
+  
 }
-

@@ -11,7 +11,7 @@ function time(id) {
         console.log(team)
         let divclub = document.createElement('div')
         divclub.setAttribute('class', 'club')
-        let titulo = document.createElement('p')
+        let titulo = document.createElement('h1')
         titulo.innerText = team.strTeam
         let logo = document.createElement('img')
         logo.setAttribute('src', team.strTeamBadge)
@@ -22,14 +22,17 @@ function time(id) {
         let esporte = document.createElement('p')
         esporte.innerText = `Esporte: ${team.strSport}`
         let nomeEstadio = document.createElement('p')
-        if (team.strStadium == "") {
-          nomeEstadio.innerHTML = "Estadio: não encontrado"
+        if (team.strStadium == "" || team.strStadium == null) {
+          nomeEstadio.innerHTML = "Estadio: Não encontrado"
         } else {
           nomeEstadio.innerText = `Estadio: ${team.strStadium}`
         }
 
         let txtEstadio = document.createElement('p')
-        txtEstadio.innerText = team.strStadiumDescription
+        if (team.strStadiumDescription != null || team.strStadiumDescription != "") {
+          txtEstadio.innerText = team.strStadiumDescription
+        }
+
         let imgEstadio = document.createElement('p')
         if (team.strStadiumThumb == null) {
           imgEstadio.setAttribute('class', 'erroImg')
@@ -53,7 +56,13 @@ function time(id) {
         }
 
         let inf = document.createElement('p')
-        inf.innerText = team.strDescriptionEN
+        if (team.strDescriptionEN == null) {
+          inf.setAttribute('class', 'erroImg')
+          inf.innerText = "Texto não encontrado"
+        } else {
+          inf.innerText = team.strDescriptionEN
+        }
+
 
         let textoHis = document.createElement('h1')
         textoHis.innerText = "História"
@@ -63,7 +72,7 @@ function time(id) {
 
         let galeria = document.createElement('div')
         galeria.setAttribute('class', 'galeria')
-        
+
 
         // galeria.innerHTML = "<p>Galeria do Time<p>"
 
@@ -86,8 +95,6 @@ function time(id) {
           galeria.appendChild(logoMarca)
         }
 
-
-        //'strTeamFanart1', 'strTeamFanart2', 'strTeamFanart3', 'strTeamFanart4', 'strTeamBanner'
 
         if (team.strTeamFanart1 != null) {
           let fanart1 = document.createElement('img')
@@ -121,6 +128,44 @@ function time(id) {
         }
 
 
+        let redes = document.createElement('div')
+        redes.setAttribute('class', 'redes')
+
+        if (team.strYoutube != "") {
+          let youtube = document.createElement('a')
+          youtube.setAttribute('href', `https://${team.strYoutube}`)
+          youtube.setAttribute('class', 'fa fa-youtube')
+          youtube.setAttribute('target', '_blank')
+          redes.appendChild(youtube)
+        }
+
+        if (team.strFacebook != "") {
+          let facebook = document.createElement('a')
+          facebook.setAttribute('href', `https://${team.strFacebook}`)
+          facebook.setAttribute('class', 'fa fa-facebook')
+          facebook.setAttribute('target', '_blank')
+          redes.appendChild(facebook)
+        }
+
+        if (team.strInstagram != "") {
+          let instagram = document.createElement('a')
+          instagram.setAttribute('href', `https://${team.strInstagram}`)
+          instagram.setAttribute('class', 'fa fa-instagram')
+          instagram.setAttribute('target', '_blank')
+          redes.appendChild(instagram)
+        }
+
+        if (team.strTwitter != "") {
+          let twitter = document.createElement('a')
+          twitter.setAttribute('href', `https://${team.strTwitter}`)
+          twitter.setAttribute('class', 'fa fa-twitter')
+          twitter.setAttribute('target', '_blank')
+          redes.appendChild(twitter)
+        }
+
+
+
+
 
 
 
@@ -144,9 +189,9 @@ function time(id) {
         divclub.appendChild(inf)
         divclub.appendChild(textoGaleria)
 
-        
-        divclub.appendChild(galeria)
 
+        divclub.appendChild(galeria)
+        divclub.appendChild(redes)
 
 
         div.appendChild(divclub)
