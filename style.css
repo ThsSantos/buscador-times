@@ -119,6 +119,25 @@ p.erroImg{
     font-size: 20px;
     margin: 30px;
 }
+
+.galeria{
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.galeria img{
+    width: 20%;
+    margin: 5px;
+}
+
+#banner{
+    width: 100%;
+    margin: 10px;
+}
+
 .time{
     width: 25%;
     background: rgba(0, 0, 0, 0.5);
@@ -153,3 +172,4 @@ p.erroImg{
 
     
 }
+

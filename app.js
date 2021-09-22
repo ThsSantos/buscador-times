@@ -59,6 +59,65 @@ function time(id) {
         let galeria = document.createElement('div')
         galeria.setAttribute('class', 'galeria')
 
+        galeria.appendChild(logo.cloneNode(true))
+
+
+        if (team.strTeamJersey != null) {
+          let uniforme = document.createElement('img')
+          uniforme.setAttribute('src', team.strTeamJersey)
+          galeria.appendChild(uniforme)
+        }
+
+
+
+
+        if (team.strTeamLogo != null) {
+          let logoMarca = document.createElement('img')
+          logoMarca.setAttribute('src', team.strTeamLogo)
+          galeria.appendChild(logoMarca)
+        }
+
+
+        //'strTeamFanart1', 'strTeamFanart2', 'strTeamFanart3', 'strTeamFanart4', 'strTeamBanner'
+
+        if (team.strTeamFanart1 != null) {
+          let fanart1 = document.createElement('img')
+          fanart1.setAttribute('src', team.strTeamFanart1)
+          galeria.appendChild(fanart1)
+        }
+
+        if (team.strTeamFanart2 != null) {
+          let fanart2 = document.createElement('img')
+          fanart2.setAttribute('src', team.strTeamFanart2)
+          galeria.appendChild(fanart2)
+        }
+
+        if (team.strTeamFanart3 != null) {
+          let fanart3 = document.createElement('img')
+          fanart3.setAttribute('src', team.strTeamFanart3)
+          galeria.appendChild(fanart3)
+        }
+
+        if (team.strTeamFanart4 != null) {
+          let fanart4 = document.createElement('img')
+          fanart4.setAttribute('src', team.strTeamFanart4)
+          galeria.appendChild(fanart4)
+        }
+
+        if (team.strTeamBanner != null) {
+          let banner = document.createElement('img')
+          banner.setAttribute('src', team.strTeamBanner)
+          banner.setAttribute('id', 'banner')
+          galeria.appendChild(banner)
+        }
+
+
+
+
+
+
+
+
 
 
         //teste
@@ -75,9 +134,10 @@ function time(id) {
         divclub.appendChild(inf)
 
 
-
-
         divclub.appendChild(galeria)
+
+
+
         div.appendChild(divclub)
 
 
