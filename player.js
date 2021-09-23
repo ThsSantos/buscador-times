@@ -13,37 +13,39 @@ function busca() {
       resposta.json().then(function (data) {
         console.log(data)
 
-        for (dados of data.player) {
-          console.log(dados)
-          let divJogador = document.createElement('div')
-          divJogador.setAttribute('class', 'jogador')
-          let img = document.createElement('img')
-          img.setAttribute('src', dados.strCutout)
-          let p = document.createElement('p')
-          let esporte = document.createElement('p')
-          let time = document.createElement('p')
-          p.innerText = dados.strPlayer
-          esporte.innerText = `Esporte: ${dados.strSport}`
-          if(dados.strTeam != null || dados.strTeam != ""){
-            time.innerText = `Time: ${dados.strTeam}`
-          }else{
-            time.innerText = `Time: Time não encontrado`
+        if (data.player == null) {
+          div.innerHTML = "<p class = 'erro'>Nenhum Jogador encontrado</p>"
+        } else {
+          for (dados of data.player) {
+            console.log(dados)
+            let divJogador = document.createElement('div')
+            divJogador.setAttribute('class', 'jogador')
+            let img = document.createElement('img')
+            img.setAttribute('src', dados.strCutout)
+            let p = document.createElement('p')
+            let esporte = document.createElement('p')
+            let time = document.createElement('p')
+            p.innerText = dados.strPlayer
+            esporte.innerText = `Esporte: ${dados.strSport}`
+            if (dados.strTeam != null || dados.strTeam != "") {
+              time.innerText = `Time: ${dados.strTeam}`
+            } else {
+              time.innerText = `Time: Time não encontrado`
+            }
+
+            let botao = document.createElement('button')
+            botao.innerText = "Saiba Mais +"
+            botao.setAttribute('onclick', `jogador(${dados.idPlayer})`)
+            divJogador.appendChild(img)
+            divJogador.appendChild(p)
+            divJogador.appendChild(time)
+            divJogador.appendChild(esporte)
+
+            divJogador.appendChild(botao)
+            div.appendChild(divJogador)
+
           }
-
-          let botao = document.createElement('button')
-          botao.innerText = "Saiba Mais +"
-          botao.setAttribute('onclick', `jogador(${dados.idPlayer})`)
-          // console.log(dados.strTeam)
-          divJogador.appendChild(img)
-          divJogador.appendChild(p)
-          divJogador.appendChild(time)
-          divJogador.appendChild(esporte)
-          
-          divJogador.appendChild(botao)
-          div.appendChild(divJogador)
-
         }
-
       })
     })
   }
@@ -51,25 +53,25 @@ function busca() {
 
 }
 
-function jogador(id){
+function jogador(id) {
   div.innerHTML = ""
-  fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id=${id}`).then(function(infos){
-    infos.json().then(function(dados){
+  fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id=${id}`).then(function (infos) {
+    infos.json().then(function (dados) {
       console.log(dados)
-      for(player of dados.players){
+      for (player of dados.players) {
         let divPlayer = document.createElement('div')
-        divPlayer.setAttribute('class','player')
+        divPlayer.setAttribute('class', 'player')
         let nome = document.createElement('h1')
         nome.innerText = player.strPlayer
         let foto = document.createElement('p')
-        foto.setAttribute('id','img')
-        if(player.strThumb != null){
+        foto.setAttribute('id', 'img')
+        if (player.strThumb != null) {
           let img = document.createElement('img')
           img.setAttribute('src', player.strThumb)
-          img.setAttribute('id','foto')
+          img.setAttribute('id', 'foto')
           foto.appendChild(img)
-        }else{
-          foto.setAttribute('class','erro')
+        } else {
+          foto.setAttribute('class', 'erro')
           foto.innerText = "Foto não encontrada"
         }
 
@@ -87,23 +89,23 @@ function jogador(id){
         localNas.innerText = `Local de nascimento: ${player.strBirthLocation}`
         let nacionalidade = document.createElement('p')
         nacionalidade.innerText = `Nacionalidade: ${player.strNationality}`
-        
+
 
         let textoHis = document.createElement('h1')
         textoHis.innerText = "História"
 
         let desc = document.createElement('p')
-        
-        if(player.strDescriptionEN != null){
+
+        if (player.strDescriptionEN != null) {
           desc.innerText = player.strDescriptionEN
-        }else{
-          desc.setAttribute('class','erro')
+        } else {
+          desc.setAttribute('class', 'erro')
           desc.innerText = "Texto não encotrado"
         }
         let textoGa = document.createElement('h1')
         textoGa.innerText = "Galeria"
         let galeria = document.createElement('div')
-        galeria.setAttribute('class','galeria')
+        galeria.setAttribute('class', 'galeria')
 
 
         if (player.strThumb != null) {
@@ -145,7 +147,7 @@ function jogador(id){
         if (player.strBanner != null) {
           let banner = document.createElement('img')
           banner.setAttribute('src', player.strBanner)
-          banner.setAttribute('id','banner')
+          banner.setAttribute('id', 'banner')
           galeria.appendChild(banner)
         }
 
@@ -176,9 +178,20 @@ function jogador(id){
           twitter.setAttribute('target', '_blank')
           redes.appendChild(twitter)
         }
+        let loja = document.createElement('div')
+        if (player.strKit == null) {
 
-        chuteira(player.strKit)
+        } else if (player.strKit == "") {
 
+        } else {
+          loja.setAttribute('class', 'loja')
+          let textoLoja = document.createElement('h1')
+          textoLoja.innerText = "Chuteira do Jogador"
+          let iframe = document.createElement('iframe')
+          iframe.setAttribute('src', `https://www.zoom.com.br/search?q=${player.strKit}`)
+          loja.appendChild(textoLoja)
+          loja.appendChild(iframe)
+        }
 
         divPlayer.appendChild(nome)
         divPlayer.appendChild(foto)
@@ -191,6 +204,7 @@ function jogador(id){
         divPlayer.appendChild(nacionalidade)
         divPlayer.appendChild(textoHis)
         divPlayer.appendChild(desc)
+        divPlayer.appendChild(loja)
         divPlayer.appendChild(textoGa)
         divPlayer.appendChild(galeria)
         divPlayer.appendChild(redes)
@@ -199,19 +213,5 @@ function jogador(id){
       }
     })
   })
-  
-}
 
-function chuteira(modelo){
-  console.log(modelo)
-  let resultado = modelo.replace(/\s+/g, "%")
-  console.log(resultado)
-  // let f = `https://www.zoom.com.br/search?q=${resultado}`
-  console.log(f)
-
-  fatch(`https://www.zoom.com.br/search?q=${resultado}`).then(function(busca){
-    busca.json().then(function(dados){
-      console.log(dados)
-    })
-  })
 }
