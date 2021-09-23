@@ -62,9 +62,11 @@ function jogador(id){
         let nome = document.createElement('h1')
         nome.innerText = player.strPlayer
         let foto = document.createElement('p')
+        foto.setAttribute('id','img')
         if(player.strThumb != null){
           let img = document.createElement('img')
           img.setAttribute('src', player.strThumb)
+          img.setAttribute('id','foto')
           foto.appendChild(img)
         }else{
           foto.setAttribute('class','erro')
@@ -85,6 +87,71 @@ function jogador(id){
         localNas.innerText = `Local de nascimento: ${player.strBirthLocation}`
         let nacionalidade = document.createElement('p')
         nacionalidade.innerText = `Nacionalidade: ${player.strNationality}`
+        
+
+        let textoHis = document.createElement('h1')
+        textoHis.innerText = "História"
+
+        let desc = document.createElement('p')
+        
+        if(player.strDescriptionEN != null){
+          desc.innerText = player.strDescriptionEN
+        }else{
+          desc.setAttribute('class','erro')
+          desc.innerText = "Texto não encotrado"
+        }
+        let textoGa = document.createElement('h1')
+        textoGa.innerText = "Galeria"
+        let galeria = document.createElement('div')
+        galeria.setAttribute('class','galeria')
+
+
+        if (player.strThumb != null) {
+          let uniforme = document.createElement('img')
+          uniforme.setAttribute('src', player.strThumb)
+          galeria.appendChild(uniforme)
+        }
+        if (player.strCutout != null) {
+          let iconFoto = document.createElement('img')
+          iconFoto.setAttribute('src', player.strCutout)
+          galeria.appendChild(iconFoto)
+        }
+        if (player.strRender != null) {
+          let render = document.createElement('img')
+          render.setAttribute('src', player.strRender)
+          galeria.appendChild(render)
+        }
+
+        if (player.strFanart1 != null) {
+          let fan1 = document.createElement('img')
+          fan1.setAttribute('src', player.strFanart1)
+          galeria.appendChild(fan1)
+        }
+        if (player.strFanart2 != null) {
+          let fan2 = document.createElement('img')
+          fan2.setAttribute('src', player.strFanart2)
+          galeria.appendChild(fan2)
+        }
+        if (player.strFanart3 != null) {
+          let fan3 = document.createElement('img')
+          fan3.setAttribute('src', player.strFanart3)
+          galeria.appendChild(fan3)
+        }
+        if (player.strFanart4 != null) {
+          let fan4 = document.createElement('img')
+          fan4.setAttribute('src', player.strFanart4)
+          galeria.appendChild(fan4)
+        }
+        if (player.strBanner != null) {
+          let banner = document.createElement('img')
+          banner.setAttribute('src', player.strBanner)
+          banner.setAttribute('id','banner')
+          galeria.appendChild(banner)
+        }
+
+
+
+        //strThumb, strCutout, strRender, strBanner, strFanart1, strFanart2, strFanart3, strFanart4,
 
 
         divPlayer.appendChild(nome)
@@ -96,7 +163,10 @@ function jogador(id){
         divPlayer.appendChild(nascimento)
         divPlayer.appendChild(localNas)
         divPlayer.appendChild(nacionalidade)
-        
+        divPlayer.appendChild(textoHis)
+        divPlayer.appendChild(desc)
+        divPlayer.appendChild(textoGa)
+        divPlayer.appendChild(galeria)
 
         div.appendChild(divPlayer)
       }

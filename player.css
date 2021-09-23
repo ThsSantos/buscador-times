@@ -139,8 +139,57 @@ h1{
     margin: 10px;
 }
 
-.erro{
+
+
+.player p{
+    color: white;
+    font-size: 30px;
+    text-align: justify;
+    margin: 5px;
+    flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    
+}
+
+p.erro{
     font-size: 20px;
     margin: 30px;
     color: white;
+}
+
+#img{
+    justify-content: center;
+    display: flex;
+}
+
+#foto{
+    width: 35%;
+    margin: 5px;
+}
+
+.erro{
+    font-size: 10px;
+    margin: 30px;
+    color: white;
+}
+
+.galeria{
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.galeria img{
+    width: 20%;
+    margin: 5px;
+}
+
+#banner{
+    width: 100%;
+    margin: 10px;
 }
