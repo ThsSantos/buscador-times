@@ -152,7 +152,7 @@ p.erroImg{
 .redes{
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
 }
 

@@ -150,8 +150,34 @@ function jogador(id){
         }
 
 
+        let redes = document.createElement('div')
+        redes.setAttribute('class', 'redes')
 
-        //strThumb, strCutout, strRender, strBanner, strFanart1, strFanart2, strFanart3, strFanart4,
+        if (player.strFacebook != "") {
+          let facebook = document.createElement('a')
+          facebook.setAttribute('href', `https://${player.strFacebook}`)
+          facebook.setAttribute('class', 'fa fa-facebook')
+          facebook.setAttribute('target', '_blank')
+          redes.appendChild(facebook)
+        }
+
+        if (player.strInstagram != "") {
+          let instagram = document.createElement('a')
+          instagram.setAttribute('href', `https://${player.strInstagram}`)
+          instagram.setAttribute('class', 'fa fa-instagram')
+          instagram.setAttribute('target', '_blank')
+          redes.appendChild(instagram)
+        }
+
+        if (player.strTwitter != "") {
+          let twitter = document.createElement('a')
+          twitter.setAttribute('href', `https://${player.strTwitter}`)
+          twitter.setAttribute('class', 'fa fa-twitter')
+          twitter.setAttribute('target', '_blank')
+          redes.appendChild(twitter)
+        }
+
+        chuteira(player.strKit)
 
 
         divPlayer.appendChild(nome)
@@ -167,10 +193,25 @@ function jogador(id){
         divPlayer.appendChild(desc)
         divPlayer.appendChild(textoGa)
         divPlayer.appendChild(galeria)
+        divPlayer.appendChild(redes)
 
         div.appendChild(divPlayer)
       }
     })
   })
   
+}
+
+function chuteira(modelo){
+  console.log(modelo)
+  let resultado = modelo.replace(/\s+/g, "%")
+  console.log(resultado)
+  // let f = `https://www.zoom.com.br/search?q=${resultado}`
+  console.log(f)
+
+  fatch(`https://www.zoom.com.br/search?q=${resultado}`).then(function(busca){
+    busca.json().then(function(dados){
+      console.log(dados)
+    })
+  })
 }
