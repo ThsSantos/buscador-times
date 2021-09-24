@@ -4,11 +4,9 @@ const div = document.querySelector('.result')
 function time(id) {
   fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${id}`).then(function (info) {
     info.json().then(function (club) {
-      console.log(club)
       div.innerHTML = ""
 
       for (team of club.teams) {
-        console.log(team)
         let divclub = document.createElement('div')
         divclub.setAttribute('class', 'club')
         let titulo = document.createElement('h1')
@@ -195,13 +193,12 @@ function busca() {
 
     fetch(`https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${nomeTime}`).then(function (resposta) {
       resposta.json().then(function (data) {
-        console.log(data)
+        
 
         if (data.teams == null) {
           div.innerHTML = "<p class = 'erroImg'>Nenhum time encontrado</p>"
         } else {
           for (dados of data.teams) {
-            console.log(dados)
             let divTime = document.createElement('div')
             divTime.setAttribute('class', 'time')
             let img = document.createElement('img')
@@ -220,7 +217,6 @@ function busca() {
             let botao = document.createElement('button')
             botao.innerText = "Saiba Mais +"
             botao.setAttribute('onclick', `time(${dados.idTeam})`)
-            // console.log(dados.strTeam)
             divTime.appendChild(img)
             divTime.appendChild(p)
             divTime.appendChild(esporte)

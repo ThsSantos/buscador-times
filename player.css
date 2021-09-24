@@ -94,8 +94,16 @@ input{
 
 button{
     margin: 5px;
-    padding: 5px;
+    padding: 8px;
     font-size: 25px;
+    background-color: chartreuse;
+    border: none;
+    border-radius: 2px;
+}
+
+button:hover{
+    background-color: rgb(191, 255, 127);
+    cursor: pointer;
 }
 
 .result{
@@ -137,7 +145,7 @@ button{
 
 .jogador button{
   margin: 10px;
-  padding: 1%;
+  padding: 8px;
 
   
 }
@@ -238,7 +246,7 @@ iframe{
     text-align: center;
     text-decoration: none;
     margin: 5px 2px;
-    background-color: white;
+    background-color: chartreuse;
     color: black;
     border-radius: 5px;
     
