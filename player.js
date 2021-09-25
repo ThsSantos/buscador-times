@@ -11,15 +11,24 @@ function busca() {
 
     fetch(`https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?p=${nomeJogador}`).then(function (resposta) {
       resposta.json().then(function (data) {
-      
+
         if (data.player == null) {
           div.innerHTML = "<p class = 'erro'>Nenhum Jogador encontrado</p>"
         } else {
           for (dados of data.player) {
+            console.log(dados)
             let divJogador = document.createElement('div')
             divJogador.setAttribute('class', 'jogador')
-            let img = document.createElement('img')
-            img.setAttribute('src', dados.strCutout)
+            let img = document.createElement('p')
+            if (dados.strCutout == null) {
+              img.setAttribute('class', 'erro')
+              img.innerText = "Foto não disponivel"
+            } else {
+              let imgJogador = document.createElement('img')
+              imgJogador.setAttribute('src', dados.strCutout)
+              img.appendChild(imgJogador)
+            }
+            // img.setAttribute('src', dados.strCutout)
             let p = document.createElement('p')
             let esporte = document.createElement('p')
             let time = document.createElement('p')

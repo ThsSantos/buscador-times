@@ -178,7 +178,7 @@ h1{
 }
 
 p.erro{
-    font-size: 20px;
+    font-size: 15px;
     margin: 30px;
     color: white;
 }
@@ -193,11 +193,6 @@ p.erro{
     margin: 5px;
 }
 
-.erro{
-    font-size: 10px;
-    margin: 30px;
-    color: white;
-}
 
 .loja{
     display: flex;
